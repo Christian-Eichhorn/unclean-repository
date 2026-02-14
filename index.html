@@ -952,14 +952,14 @@
         let currentFilter = 'all';
         let currentSort = { column: null, direction: 'asc' };
         
-        // Shop column mapping
+        // Shop column mapping - full names used for finding links
         const shopColumns = [
-            'DTRPG',
-            'Itch.io',
-            'Creature Curation (USA)',
-            'All The Problems (EU)',
-            'Pit Trap Shop (EU)',
-            'Beyond Cataclysm (UK)'
+            { full: 'DTRPG', short: 'DTRPG' },
+            { full: 'Itch.io', short: 'Itch.io' },
+            { full: 'Creature Curation (USA)', short: 'Creature Curation' },
+            { full: 'All The Problems (EU)', short: 'All The Problems' },
+            { full: 'Pit Trap Shop (EU)', short: 'Pit Trap Shop' },
+            { full: 'Beyond Cataclysm (UK)', short: 'Beyond Cataclysm' }
         ];
         
         function getLinkForShop(item, shopName) {
@@ -1019,16 +1019,18 @@
                 row.appendChild(systemCell);
                 
                 // Shop columns
-                shopColumns.forEach(shopName => {
+                shopColumns.forEach(shop => {
                     const cell = document.createElement('td');
-                    const link = getLinkForShop(item, shopName);
+                    const link = getLinkForShop(item, shop.full);
                     
                     if (link) {
                         const a = document.createElement('a');
                         a.href = link.url;
                         a.className = 'shop-link';
-                        a.textContent = link.label === '►' || link.label === '■' ? '●' : '●';
-                        a.title = shopName;
+                        // Use the label from spreadsheet (which might be variant name like "Unclean")
+                        // or the title if label was just a symbol
+                        const productName = (link.label === '►' || link.label === '■') ? item.title : link.label;
+                        a.textContent = `${productName} (${shop.short})`;
                         a.target = '_blank';
                         cell.appendChild(a);
                     } else {
