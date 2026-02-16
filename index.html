@@ -22,6 +22,25 @@
     		line-height: 1;
     		vertical-align: middle;
 			}
+
+			@keyframes grow-shrink {
+ 		   	0% {
+     		transform: scale(1); /* Original size */
+   		 	}
+    		50% {
+       		transform: scale(0.6); /* Shrinks to 60% of its size */
+    		}
+    		100% {
+        	transform: scale(1); /* Back to original size */
+    		}
+			}
+
+			.pulse-symbol {
+    		display: inline-block;     /* Essential for scaling to work */
+    		animation: grow-shrink 3s ease-in-out infinite;
+    		transform-origin: center;  /* Ensures it shrinks toward the middle */
+			}
+
 		
 			#itemCount {
 			font-family: 'Inter', sans-serif;
@@ -241,9 +260,9 @@
 <body>
     <div class="container">
         <header>
-            <h1><span class="logo-spinner">◌</span></h1> <br>
+			<h1><span class="pulse-symbol">▼</span></h1>
 			<h1>An Unclean Repository</h1> <br>
-			<h1> ▼ </h1>
+			<h1><span class="logo-spinner">◌</span></h1> <br>
         </header>
         
         <div class="controls">
