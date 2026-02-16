@@ -9,7 +9,7 @@
     <style>
 
 			#itemCount {
-			font-size: 8em;
+			font-size: 7em;
 			font-weight: bold;
 			color: #000;
 			}
@@ -194,8 +194,8 @@
         footer {
             text-align: center;
             padding: 40px 0 20px;
-            color: #666;
-            border-top: 1px solid #333;
+            color: #000;
+            border-top: 10px solid #000;
             margin-top: 40px;
         }
         
@@ -259,6 +259,7 @@
 			<p>
                 Maintained and Defiled by an Undead Necromancer (Strong)<br>
 			    Page built by Ryan Majidimehr | <a href="mailto:blinkframerpg@gmail.com">Email</a> | blinkframeRPG <br>
+				<h1>〠</h1>
             </p>
         </footer>
     </div>
@@ -1064,7 +1065,7 @@
             
             // Update count
             document.getElementById('itemCount').textContent = 
-                `SHOWING ${visibleCount} OF ${data.length} ITEMS YOU FOOL! <br> ❡`;
+                `❡ — SHOWING ${visibleCount} OF ${data.length} ITEMS YOU FOOL!`;
         }
         
         // Filter button handlers
