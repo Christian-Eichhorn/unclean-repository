@@ -174,7 +174,7 @@
         .shop-link {
             display: inline-block;
             padding: 4px 10px;
-            background: #FFF;
+            background: yellow;
             color: #000;
             text-decoration: none;
             border-radius: 1px;
@@ -184,6 +184,7 @@
         
         .shop-link:hover {
             background: yellow;
+			font-weight: 1000;
         }
         
         .empty-cell {
@@ -1063,7 +1064,7 @@
             
             // Update count
             document.getElementById('itemCount').textContent = 
-                `❡ SHOWING ${visibleCount} OF ${data.length} ITEMS YOU FOOL!`;
+                `SHOWING ${visibleCount} OF ${data.length} ITEMS YOU FOOL! <br> ❡`;
         }
         
         // Filter button handlers
