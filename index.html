@@ -1098,20 +1098,32 @@
     </script>
 
 <script>
-fetch("https://api.counterapi.dev/v2/christian-eichhorns-team-2934/first-counter-2934/up", {
-  method: "GET",
-  headers: {
-    "Authorization": "Bearer ut_bx4IjJexuXbAYdxWP6Q3ysz2BGgzeJsBKWX676LO"
+  async function updateCounter() {
+    const url = "https://api.counterapi.dev/v2/christian-eichhorns-team-2934/first-counter-2934/up";
+    const apiKey = "ut_bx4IjJexuXbAYdxWP6Q3ysz2BGgzeJsBKWX676LO"; // Put your actual key here
+
+    try {
+      const response = await fetch(url, {
+        method: 'GET', // The /up endpoint increments on GET
+        headers: {
+          'Authorization': `Bearer ${apiKey}`,
+          'Content-Type': 'application/json'
+        }
+      });
+
+      const data = await response.json();
+      
+      // Update the number on your page
+      if (data && data.count) {
+        document.getElementById('count').innerText = data.count.toLocaleString();
+      }
+    } catch (error) {
+      console.error('Counter failed to load:', error);
+    }
   }
-})
-.then(response => response.json())
-.then(data => {
-  console.log("Visitor count:", data.data.up_count);
-  
-  // Optional: Display count on page
-  document.getElementById("visitor-count").innerText = data.data.up_count;
-})
-.catch(error => console.error("Error:", error));
+
+  // Run the function when the page loads
+  updateCounter();
 </script>
 	
 </body>
