@@ -1057,7 +1057,7 @@
             
             // Update count
             document.getElementById('itemCount').textContent = 
-                `Showing ${visibleCount} of ${data.length} items`;
+                <h1>`Showing ${visibleCount} of ${data.length} items`</h1>;
         }
         
         // Filter button handlers
@@ -1102,34 +1102,6 @@
         renderTable();
     </script>
 
-<script>
-  async function updateCounter() {
-    const url = "https://api.counterapi.dev/v2/christian-eichhorns-team-2934/first-counter-2934/up";
-    const apiKey = "ut_bx4IjJexuXbAYdxWP6Q3ysz2BGgzeJsBKWX676LO"; // Put your actual key here
-
-    try {
-      const response = await fetch(url, {
-        method: 'GET', // The /up endpoint increments on GET
-        headers: {
-          'Authorization': `Bearer ${apiKey}`,
-          'Content-Type': 'application/json'
-        }
-      });
-
-      const data = await response.json();
-      
-      // Update the number on your page
-      if (data && data.count) {
-        document.getElementById('count').innerText = data.count.toLocaleString();
-      }
-    } catch (error) {
-      console.error('Counter failed to load:', error);
-    }
-  }
-
-  // Run the function when the page loads
-  updateCounter();
-</script>
 	
 </body>
 </html>
