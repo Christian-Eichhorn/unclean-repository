@@ -1095,5 +1095,23 @@
         // Initial render
         renderTable();
     </script>
+
+<script>
+fetch("https://api.counterapi.dev/v2/christian-eichhorns-team-2934/first-counter-2934/up", {
+  method: "GET",
+  headers: {
+    "Authorization": "Bearer ut_bx4IjJexuXbAYdxWP6Q3ysz2BGgzeJsBKWX676LO"
+  }
+})
+.then(response => response.json())
+.then(data => {
+  console.log("Visitor count:", data.data.up_count);
+  
+  // Optional: Display count on page
+  document.getElementById("visitor-count").innerText = data.data.up_count;
+})
+.catch(error => console.error("Error:", error));
+</script>
+	
 </body>
 </html>
