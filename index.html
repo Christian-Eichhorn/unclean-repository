@@ -179,7 +179,6 @@
             color: #000;
 			font-weight: 400;
             font-size: 0.8rem;
-            max-width: 30px;
         }
         
         .shop-link {
@@ -226,6 +225,19 @@
             font-size: 0.9rem;
         }
 
+		#repoTable th:nth-child(1), 
+		#repoTable td:nth-child(1) {
+   			max-width: 130px; /* Optional: absolute limit */
+    		overflow: hidden;
+    		white-space: nowrap; /* Prevents text from wrapping to a new line */
+    		text-overflow: ellipsis; /* Adds "..." if the text is too long for the cell */
+		}
+
+		#repoTable th:nth-child(2), 
+		#repoTable td:nth-child(2) {
+   			max-width: 50px; /* Optional: absolute limit */
+		}
+		
 		#repoTable th:nth-child(n+3),
 		#repoTable td:nth-child(n+3) {
     
